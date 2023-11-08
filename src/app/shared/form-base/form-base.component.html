@@ -1,0 +1,264 @@
+<div class="register">
+  <div class="card card-register">
+    <div class="card-register__header_perfil" *ngIf="perfilComponent">
+      <h1 class="headline medium">Olá, {{ user }}!</h1>
+      <button
+        pButton
+        label="DESLOGAR"
+        class="p-button-outlined"
+        icon="pi pi-sign-out"
+        (click)="logout()"
+      ></button>
+    </div>
+    <div class="card-register__header" *ngIf="!perfilComponent">
+      <h1 class="headline large">Crie sua conta</h1>
+    </div>
+    <form [formGroup]="registerForm">
+      <div class="card-register__context">
+        <div class="card-register__context_data">
+          <div class="card-register__context_data_subtitle">
+            <p class="title large" *ngIf="perfilComponent">Dados pessoais</p>
+            <!-- <button
+              pButton
+              label="EDITAR"
+              class="p-button-outlined"
+              icon="pi pi-pencil"
+              (click)="logout()"
+            ></button> -->
+          </div>
+          <div class="input-container">
+            <label for="nome" class="label medium">Nome</label>
+            <input
+              id="nome"
+              type="text"
+              pInputText
+              placeholder="Digite seu nome"
+              formControlName="nome"
+            />
+            <small
+              id="nome-required"
+              class="p-error block"
+              *ngIf="registerForm.get('nome')?.errors?.['required'] && registerForm.get('nome')?.touched"
+              >Nome é obrigatório</small
+            >
+          </div>
+          <div class="form-cols">
+            <div>
+              <app-input-calendar
+                label="Data de nascimento"
+                [control]="nascimentoControl"
+              ></app-input-calendar>
+            </div>
+            <div>
+              <label for="genero" class="label small">Gênero</label>
+              <div class="teste">
+                <div
+                  *ngFor="let category of categories"
+                  class="field-radiobutton"
+                >
+                  <p-radioButton
+                    [inputId]="category.key"
+                    name="genero"
+                    [value]="category.key"
+                    formControlName="genero"
+                  ></p-radioButton>
+                  <label [for]="category.key" class="label small">{{
+                    category.name
+                  }}</label>
+                </div>
+              </div>
+            </div>
+            <div class="input-container">
+              <label for="cpf" class="label medium">CPF</label>
+              <input
+                id="cpf"
+                type="text"
+                pInputText
+                placeholder="Digite seu CPF"
+                formControlName="cpf"
+              />
+              <small
+                id="cpf-required"
+                class="p-error block"
+                *ngIf="registerForm.get('cpf')?.errors?.['required'] && registerForm.get('cpf')?.touched"
+                >CPF é obrigatório</small
+              >
+            </div>
+
+            <div class="input-container">
+              <label for="telefone" class="label medium">Telefone</label>
+              <input
+                id="telefone"
+                type="text"
+                pInputText
+                placeholder="Digite seu telefone"
+                formControlName="telefone"
+              />
+              <small
+                id="telefone-required"
+                class="p-error block"
+                *ngIf="registerForm.get('telefone')?.errors?.['required'] && registerForm.get('telefone')?.touched"
+                >Telefone é obrigatório</small
+              >
+            </div>
+
+            <div class="input-container">
+              <label for="cidade" class="label medium">Cidade</label>
+              <input
+                id="cidade"
+                type="text"
+                pInputText
+                placeholder="Digite seu cidade"
+                formControlName="cidade"
+              />
+              <small
+                id="cidade-required"
+                class="p-error block"
+                *ngIf="registerForm.get('cidade')?.errors?.['required'] && registerForm.get('cidade')?.touched"
+                >Cidade é obrigatório</small
+              >
+            </div>
+
+            <div>
+              <app-dropdown-uf
+                label="Estado"
+                [control]="estadoControl"
+                [withIcon]="false"
+              ></app-dropdown-uf>
+            </div>
+          </div>
+
+          <p-divider class="line-divider" *ngIf="perfilComponent"></p-divider>
+
+          <div class="card-register__context_data_subtitle">
+            <p class="title large" *ngIf="perfilComponent">Dados de acesso</p>
+
+            <!-- <button
+              pButton
+              label="EDITAR"
+              class="p-button-outlined"
+              icon="pi pi-pencil"
+              (click)="logout()"
+            ></button> -->
+          </div>
+          <div class="form-cols">
+            <div class="input-container">
+              <label for="email" class="label medium">E-mail</label>
+              <input
+                id="email"
+                type="text"
+                pInputText
+                placeholder="Digite seu email"
+                formControlName="email"
+              />
+              <small
+                id="email-required"
+                class="p-error block"
+                *ngIf="registerForm.get('email')?.errors?.['required'] && registerForm.get('email')?.touched"
+                >E-mail é obrigatório</small
+              >
+            </div>
+
+            <div class="input-container">
+              <label for="confirmarEmail" class="label medium"
+                >Confirmar e-mail</label
+              >
+              <input
+                id="confirmarEmail"
+                type="text"
+                pInputText
+                placeholder="Digite seu e-mail novamente"
+                formControlName="confirmarEmail"
+              />
+              <small
+                id="confirmarEmail-required"
+                class="p-error block"
+                *ngIf="registerForm.get('confirmarEmail')?.errors?.['required'] && registerForm.get('confirmarEmail')?.touched"
+                >É necessário confirmar o e-mail</small
+              >
+              <br />
+              <small
+                id="confirmarEmail-equalTo"
+                class="p-error block"
+                *ngIf="registerForm.get('confirmarEmail')?.errors?.['equalTo'] && registerForm.get('confirmarEmail')?.touched"
+                >E-mails não coincidem</small
+              >
+            </div>
+
+            <div class="input-container">
+              <label for="senha" class="label medium">Senha</label>
+              <input
+                id="senha"
+                type="text"
+                pInputText
+                placeholder="Digite seu senha"
+                formControlName="senha"
+              />
+              <small
+                id="senha-required"
+                class="p-error block"
+                *ngIf="registerForm.get('senha')?.errors?.['required'] && registerForm.get('senha')?.touched"
+                >Senha é obrigatório</small
+              >
+            </div>
+
+            <div class="input-container">
+              <label for="confirmarSenha" class="label medium"
+                >Confirmar senha</label
+              >
+              <input
+                id="confirmarSenha"
+                type="text"
+                pInputText
+                placeholder="Digite sua senha novamente"
+                formControlName="confirmarSenha"
+              />
+              <small
+                id="confirmarSenha-required"
+                class="p-error block"
+                *ngIf="registerForm.get('confirmarSenha')?.errors?.['required'] && registerForm.get('confirmarSenha')?.touched"
+                >É necessário confirmar a senha</small
+              >
+              <br />
+              <small
+                id="confirmarSenha-equalTo"
+                class="p-error block"
+                *ngIf="registerForm.get('confirmarSenha')?.errors?.['equalTo'] && registerForm.get('confirmarSenha')?.touched"
+                >Senhas não coincidem</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-register__footer">
+        <div class="field-checkbox" *ngIf="!perfilComponent">
+          <p-checkbox
+            [binary]="true"
+            inputId="aceitarTermos"
+            name="aceitarTermos"
+            formControlName="aceitarTermos"
+          ></p-checkbox>
+          <label for="aceitarTermos" class="body large"
+            >Li e aceito os termos e condições deste cadastro.</label
+          >
+        </div>
+        <button
+          pButton
+          [label]="tituloBotao"
+          class="btn primary"
+          (click)="executarAcao()"
+          [disabled]="registerForm.invalid"
+          [class.perfil-button]="perfilComponent"
+        ></button>
+      </div>
+    </form>
+    <!-- <div class="card-register__footer" *ngIf="!perfilComponent">
+      <p class="body large">
+        Ainda não possui sua conta?
+        <a
+          ><strong><u>Clique aqui para cadastrar!</u></strong></a
+        >
+      </p>
+    </div> -->
+  </div>
+</div>

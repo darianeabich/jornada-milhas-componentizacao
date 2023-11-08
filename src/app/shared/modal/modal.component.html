@@ -1,0 +1,86 @@
+<form [formGroup]="formBuscaService.formBusca">
+  <div class="modal-content">
+    <div class="grid p-fluid">
+      <div class="field">
+        <p class="title medium">Adultos</p>
+        <label class="body medium" for="horizontal">(Acima de 12 anos)</label>
+        <p-inputNumber
+          [showButtons]="true"
+          buttonLayout="horizontal"
+          inputId="horizontal"
+          spinnerMode="horizontal"
+          mode="decimal"
+          [min]="1"
+          [max]="10"
+          decrementButtonClass="p-button-secondary"
+          incrementButtonClass="p-button-primary"
+          incrementButtonIcon="pi pi-plus-circle"
+          decrementButtonIcon="pi pi-minus-circle"
+          formControlName="adultos"
+        >
+        </p-inputNumber>
+      </div>
+      <div class="field">
+        <p class="title medium">Crianças</p>
+        <label class="body medium" for="horizontal">(Entre 2 e 11 anos)</label>
+        <p-inputNumber
+          [showButtons]="true"
+          buttonLayout="horizontal"
+          inputId="horizontal"
+          spinnerMode="horizontal"
+          mode="decimal"
+          [min]="0"
+          [max]="10"
+          decrementButtonClass="p-button-secondary"
+          incrementButtonClass="p-button-primary"
+          incrementButtonIcon="pi pi-plus-circle"
+          decrementButtonIcon="pi pi-minus-circle"
+          formControlName="criancas"
+        >
+        </p-inputNumber>
+      </div>
+      <div class="field">
+        <p class="title medium">Bebês</p>
+        <label class="body medium" for="horizontal">(Até 2 anos)</label>
+        <p-inputNumber
+          [showButtons]="true"
+          buttonLayout="horizontal"
+          inputId="horizontal"
+          spinnerMode="horizontal"
+          mode="decimal"
+          [min]="0"
+          [max]="10"
+          decrementButtonClass="p-button-secondary"
+          incrementButtonClass="p-button-primary"
+          incrementButtonIcon="pi pi-plus-circle"
+          decrementButtonIcon="pi pi-minus-circle"
+          formControlName="bebes"
+        >
+        </p-inputNumber>
+      </div>
+    </div>
+    <div class="categoria">
+      <p class="title medium">Categoria</p>
+      <div class="categoria__classe">
+        <app-select-classe
+          formControlName="tipo"
+          [control]="formBuscaService.obterControle('tipo')"
+        ></app-select-classe>
+      </div>
+    </div>
+    <div class="botoes">
+      <button
+        pButton
+        class="btn secondary title medium"
+        type="button"
+        label="Cancelar"
+      ></button>
+      <button
+        pButton
+        class="btn primary title medium"
+        type="button"
+        label="Aplicar"
+      ></button>
+    </div>
+  </div>
+</form>

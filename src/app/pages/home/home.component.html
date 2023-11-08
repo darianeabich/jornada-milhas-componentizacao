@@ -1,0 +1,31 @@
+<app-banner
+  src="assets/imagens/banner-homepage.png"
+  alt="Banner da aplicação Jornada"
+></app-banner>
+<app-container>
+  <app-form-busca></app-form-busca>
+  <h2>Promoções</h2>
+  <div class="card-wrapper">
+    <div *ngFor="let promocao of listaPromocoes">
+      <app-card-busca
+        [imagem]="promocao.imagem"
+        [cidade]="promocao.destino"
+        [preco]="promocao.preco"
+      ></app-card-busca>
+    </div>
+  </div>
+  <h2>Depoimentos</h2>
+  <div class="card-wrapper">
+    <div *ngFor="let depo of listaDepos">
+      <app-card-depo
+        avatar="{{ depo.avatar }}"
+        comentario="{{ depo.texto }}"
+        usuario="{{ depo.autor }}"
+      ></app-card-depo>
+    </div>
+  </div>
+</app-container>
+<app-banner
+  src="assets/imagens/banner-homepage-rodape.png"
+  alt="Banner da aplicação Jornada para o rodapé"
+></app-banner>

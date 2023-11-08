@@ -1,0 +1,24 @@
+<div class="p-inputgroup" [ngClass]="{ withAddon: !withIcon }">
+  <span *ngIf="withIcon" class="p-inputgroup-addon"
+    ><img src="{{ icon }}"
+  /></span>
+  <span class="p-float-label">
+    <p-autoComplete
+      inputId="uf"
+      field="nome"
+      (completeMethod)="search($event)"
+      [suggestions]="ufs"
+      placeholder="{{ placeholder }}"
+      [formControl]="control"
+      ngDefaultControl
+    >
+      <ng-template let-estado pTemplate="item">
+        <p>{{ estado.nome }}</p>
+      </ng-template>
+    </p-autoComplete>
+    <label for="uf">{{ label }}</label>
+  </span>
+  <span class="p-input-icon-right">
+    <i class="pi pi-search"></i>
+  </span>
+</div>

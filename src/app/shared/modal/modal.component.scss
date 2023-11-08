@@ -1,0 +1,94 @@
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+:host
+  ::ng-deep
+  .p-inputnumber-buttons-horizontal
+  .p-button.p-inputnumber-button-down {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background: rgba(30, 28, 33, 0.122);
+  color: black;
+}
+
+:host
+  ::ng-deep
+  .p-inputnumber-buttons-horizontal
+  .p-button.p-inputnumber-button-up {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background: var(--secondary-container);
+  color: black;
+}
+
+:host ::ng-deep .p-inputnumber-input:focus {
+  border: none;
+}
+
+p {
+  margin: 0;
+}
+
+:host ::ng-deep .p-inputnumber-buttons-horizontal .p-inputnumber-input {
+  border: none;
+  width: 50px;
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.field {
+  width: 137px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.p-inputnumber-horizontal {
+  display: flex;
+  gap: 8px;
+}
+
+.botoes {
+  display: flex;
+  flex-direction: row;
+  // justify-content: space-between;
+  gap: 24px;
+
+  button {
+    width: 100%;
+  }
+}
+
+.categoria {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .categoria__classe {
+    display: flex;
+    gap: 8px;
+  }
+}
+
+:host ::ng-deep .p-togglebutton {
+  border-radius: 16px;
+  display: flex;
+  height: 32px;
+  padding: 6px 12px 6px 4px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}

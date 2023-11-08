@@ -1,0 +1,33 @@
+:host ::ng-deep .p-card {
+  max-width: 320px;
+  background-color: #fef7ff;
+  box-shadow: none;
+
+  .p-card-body {
+    padding: 12px 24px 12px 16px;
+
+    .p-card-content {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          font-family: Roboto;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 24px;
+        }
+
+        li:last-child {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

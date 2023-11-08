@@ -1,0 +1,57 @@
+:host ::ng-deep .form-busca {
+  margin: 40px 0;
+  display: block;
+
+  .flex-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 24px 0;
+
+    .p-togglebutton {
+      border-radius: 16px;
+      display: flex;
+      height: 32px;
+      padding: 6px 12px 6px 4px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+
+  .flex-container__inputs {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    margin: 16px 0;
+
+    .button-busca {
+      width: 100%;
+      display: flex;
+      align-items: center;
+
+      button {
+        height: 40px;
+        width: inherit;
+      }
+    }
+  }
+
+  h2 {
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+}
+
+:host ::ng-deep app-input-calendar {
+  .p-inputtext {
+    width: 140px;
+  }
+}
+
+:host ::ng-deep .drop-container {
+  .p-inputgroup {
+    width: 234px;
+  }
+}

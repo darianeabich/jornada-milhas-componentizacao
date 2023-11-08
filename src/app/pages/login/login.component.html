@@ -1,0 +1,71 @@
+<app-banner src="assets/imagens/banner-login.png" alt="Banner da tela de login">
+</app-banner>
+
+<div class="login">
+  <div class="card card-login">
+    <div class="card-login__context">
+      <div class="card-login__context_image">
+        <img
+          src="assets/imagens/simbolo-bussula.png"
+          alt="Símbolo de bússula"
+        />
+      </div>
+      <form [formGroup]="loginForm">
+        <div class="card-login__context_infos">
+          <p class="headline large">Login</p>
+          <div class="card-login__context_infos_data">
+            <div class="input-container">
+              <label for="email" class="label medium">E-mail ou CPF</label>
+              <input
+                id="email"
+                type="email"
+                pInputText
+                placeholder="Digite seu e-mail ou CPF"
+                formControlName="email"
+              />
+              <small
+                id="email-required"
+                class="p-error block"
+                *ngIf="loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.touched"
+                >E-mail é obrigatório</small
+              >
+            </div>
+
+            <div class="input-container">
+              <label for="senha" class="label medium">Senha</label>
+              <input
+                id="senha"
+                type="text"
+                pInputText
+                placeholder="Digite sua senha"
+                formControlName="senha"
+              />
+              <small
+                id="senha-required"
+                class="p-error block"
+                *ngIf="loginForm.get('senha')?.errors?.['required'] && loginForm.get('senha')?.touched"
+                >Senha é obrigatório</small
+              >
+            </div>
+
+            <button
+              pButton
+              label="ACESSAR MINHA CONTA"
+              class="btn primary"
+              (click)="login()"
+              [disabled]="loginForm.invalid"
+            ></button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="card-login__footer">
+      <p class="body large">
+        Ainda não possui sua conta?
+        <a
+          ><strong><u>Clique aqui para cadastrar!</u></strong></a
+        >
+      </p>
+    </div>
+  </div>
+</div>

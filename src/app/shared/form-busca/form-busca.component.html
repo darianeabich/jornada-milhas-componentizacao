@@ -1,0 +1,68 @@
+<app-card variant="secondary" class="form-busca">
+  <form [formGroup]="formBuscaService.formBusca">
+    <h2>Passagens</h2>
+    <div class="flex-container">
+      <p-selectButton
+        [options]="stateOptions"
+        optionLabel="label"
+        optionValue="value"
+        formControlName="somenteIda"
+      >
+        <ng-template let-option pTemplate="item">
+          <i
+            *ngIf="option.value === passagensForm.get('somenteIda')?.value"
+            class="pi pi-check"
+          ></i>
+          {{ option.label }}
+        </ng-template>
+      </p-selectButton>
+      <p-toggleButton
+        [onLabel]="oneAdult"
+        offLabel="1 adulto"
+        [onIcon]="iconCheck"
+        offIcon=""
+        formControlName="adultos"
+      ></p-toggleButton>
+      <p-toggleButton
+        onLabel="Econômica"
+        offLabel="Econômica"
+        [onIcon]="iconCheck"
+        offIcon=""
+        formControlName="tipo"
+        (click)="show()"
+      ></p-toggleButton>
+    </div>
+
+    <div class="flex-container__inputs">
+      <div class="drop-container">
+        <app-dropdown-uf
+          icon="assets/icones/flight_takeoff.png"
+          label="Origem"
+          [control]="formBuscaService.obterControle('origem')"
+        ></app-dropdown-uf>
+      </div>
+      <button pButton icon="pi pi-arrows-h" class="p-button-text"></button>
+      <div class="drop-container">
+        <app-dropdown-uf
+          icon="assets/icones/flight_land.png"
+          label="Destino"
+          [control]="formBuscaService.obterControle('destino')"
+        ></app-dropdown-uf>
+      </div>
+
+      <!-- <div class="input-container"> -->
+      <app-input-calendar
+        label="Data de ida"
+        formControlName="dataIda"
+      ></app-input-calendar>
+      <app-input-calendar
+        label="Data de volta"
+        formControlName="dataVolta"
+      ></app-input-calendar>
+      <!-- </div> -->
+      <div class="button-busca">
+        <button pButton label="BUSCAR" class="btn primary"></button>
+      </div>
+    </div>
+  </form>
+</app-card>

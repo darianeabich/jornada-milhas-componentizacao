@@ -1,0 +1,78 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+:host ::ng-deep .card-login {
+  display: flex;
+  width: 600px;
+  padding: 32px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+
+  .card-login__context {
+    display: flex;
+    flex-direction: row;
+    gap: 48px;
+
+    p {
+      margin: 0 !important;
+    }
+
+    &_image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &_infos {
+      display: flex;
+      width: 270px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 32px;
+
+      &_data {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.input-container {
+  position: relative;
+  margin: 8px 0 0 0;
+  width: 100%;
+}
+
+.input-container label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  transition: transform 0.3s ease-in-out;
+
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: var(--primary);
+  background-color: var(--primary-on);
+  margin: 0 8px;
+  padding: 0 2px;
+}
+
+.input-container input {
+  width: 100%;
+}

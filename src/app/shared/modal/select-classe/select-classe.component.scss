@@ -1,0 +1,9 @@
+:host ::ng-deep .p-buttonset .p-button {
+  border-radius: 20px;
+  padding: 6px;
+}
+
+:host ::ng-deep .p-selectbutton {
+  display: flex;
+  gap: 8px;
+}

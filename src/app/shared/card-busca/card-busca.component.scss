@@ -1,0 +1,49 @@
+:host ::ng-deep .p-card {
+  max-width: 320px;
+  background-color: #fef7ff;
+  border-radius: 12px;
+
+  .p-card-body {
+    padding: 0 0 12px 0;
+
+    .p-card-content {
+      padding-top: 0;
+
+      img {
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+      }
+
+      .card-busca__infos {
+        padding: 16px;
+
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          li {
+            margin: 12px;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 32px;
+            color: #1d1b20;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 24px;
+          }
+
+          li:last-child {
+            font-size: 32px;
+          }
+        }
+      }
+    }
+
+    button {
+      width: 100%;
+
+      // margin: 0 16px 48px;
+    }
+  }
+}

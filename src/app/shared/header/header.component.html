@@ -1,0 +1,56 @@
+<p-toolbar>
+  <div class="p-toolbar-group-left">
+    <img src="assets/imagens/logo.png" alt="Logo da aplicação Jornada" />
+  </div>
+
+  <div class="p-toolbar-group-right">
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Vender milhas"
+      class="p-button-text text-white mr-2"
+    ></button>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Sobre"
+      class="p-button-text text-white mr-2"
+    ></button>
+
+    <ng-container *ngIf="user$ | async as user; else login">
+      <a routerLink="/perfil">
+        <img src="assets/icones/user.png" alt="Ícone da pessoa usuária" />
+      </a>
+
+      <button
+        pButton
+        pRipple
+        type="button"
+        label="SAIR"
+        class="p-button-outlined"
+        (click)="logout()"
+      ></button>
+    </ng-container>
+
+    <ng-template #login>
+      <button
+        pButton
+        pRipple
+        type="button"
+        label="CADASTRE-SE"
+        class="p-button-raised mr-2"
+        routerLink="/register"
+      ></button>
+      <button
+        pButton
+        pRipple
+        type="button"
+        label="LOGIN"
+        class="p-button-outlined"
+        routerLink="/login"
+      ></button>
+    </ng-template>
+  </div>
+</p-toolbar>

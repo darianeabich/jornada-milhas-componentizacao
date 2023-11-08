@@ -1,0 +1,24 @@
+:host ::ng-deep .p-toolbar {
+  background-color: black;
+  color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  display: flex;
+  align-items: center;
+  border-radius: 0;
+  font-weight: 600;
+}
+
+.p-button.p-button-outlined {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.545);
+}
+
+.text-white {
+  color: white;
+}
+
+.p-toolbar-group-right {
+  gap: 8px;
+}
