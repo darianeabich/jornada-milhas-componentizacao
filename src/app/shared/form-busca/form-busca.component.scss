@@ -48,6 +48,10 @@
     }
   }
 
+  .p-chip {
+    cursor: pointer;
+  }
+
   h2 {
     font-size: 24px;
     margin: 0;
@@ -66,15 +70,3 @@
     width: 234px;
   }
 }
-
-// :host ::ng-deep .field {
-//   // width: 164px;
-
-//   .p-calendar {
-//     height: 48px;
-//   }
-
-//   button {
-//     margin: 0;
-//   }
-// }

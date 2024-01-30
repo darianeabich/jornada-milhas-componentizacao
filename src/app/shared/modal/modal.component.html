@@ -1,4 +1,4 @@
-<form [formGroup]="formBuscaService.formBusca">
+<form [formGroup]="viajanteForm">
   <div class="modal-content">
     <div class="grid p-fluid">
       <div class="field">
@@ -16,7 +16,7 @@
           incrementButtonClass="p-button-primary"
           incrementButtonIcon="pi pi-plus-circle"
           decrementButtonIcon="pi pi-minus-circle"
-          formControlName="adultos"
+          formControlName="passageirosAdultos"
         >
         </p-inputNumber>
       </div>
@@ -35,7 +35,7 @@
           incrementButtonClass="p-button-primary"
           incrementButtonIcon="pi pi-plus-circle"
           decrementButtonIcon="pi pi-minus-circle"
-          formControlName="criancas"
+          formControlName="passageirosCriancas"
         >
         </p-inputNumber>
       </div>
@@ -54,7 +54,7 @@
           incrementButtonClass="p-button-primary"
           incrementButtonIcon="pi pi-plus-circle"
           decrementButtonIcon="pi pi-minus-circle"
-          formControlName="bebes"
+          formControlName="passageirosBebes"
         >
         </p-inputNumber>
       </div>
@@ -62,10 +62,20 @@
     <div class="categoria">
       <p class="title medium">Categoria</p>
       <div class="categoria__classe">
-        <app-select-classe
+        <p-selectButton
+          [options]="stateOptions"
+          optionLabel="label"
+          optionValue="value"
           formControlName="tipo"
-          [control]="formBuscaService.obterControle('tipo')"
-        ></app-select-classe>
+        >
+          <ng-template let-option pTemplate="item">
+            <i
+              *ngIf="option.value === viajanteForm.get('tipo')?.value"
+              class="pi pi-check"
+            ></i>
+            {{ option.label }}
+          </ng-template>
+        </p-selectButton>
       </div>
     </div>
     <div class="botoes">
@@ -74,12 +84,14 @@
         class="btn secondary title medium"
         type="button"
         label="Cancelar"
+        (click)="close()"
       ></button>
       <button
         pButton
         class="btn primary title medium"
         type="button"
         label="Aplicar"
+        (click)="applyValues()"
       ></button>
     </div>
   </div>

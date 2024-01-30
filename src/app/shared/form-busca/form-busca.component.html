@@ -19,21 +19,17 @@
           {{ option.label }}
         </ng-template>
       </p-selectButton>
-      <p-toggleButton
-        [onLabel]="oneAdult"
-        offLabel="1 adulto"
-        [onIcon]="iconCheck"
-        offIcon=""
-        formControlName="adultos"
-      ></p-toggleButton>
-      <p-toggleButton
-        onLabel="Executiva"
-        offLabel="Executiva"
-        [onIcon]="iconCheck"
-        offIcon=""
-        formControlName="tipo"
+
+      <p-chip
+        [label]="passageiros"
+        icon="pi pi-check"
         (click)="show()"
-      ></p-toggleButton>
+      ></p-chip>
+      <p-chip
+        [label]="tipoPassagem"
+        icon="pi pi-check"
+        (click)="show()"
+      ></p-chip>
     </div>
 
     <div class="flex-container__inputs">

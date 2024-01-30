@@ -19,6 +19,7 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ChipModule } from 'primeng/chip';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AutenticacaoInterceptor } from './core/interceptors/autenticacao.interceptor';
@@ -41,7 +42,6 @@ import { HeaderComponent } from './shared/header/header.component';
 import { InputCalendarComponent } from './shared/input-calendar/input-calendar.component';
 import { InputTextComponent } from './shared/input-text/input-text.component';
 import { ModalComponent } from './shared/modal/modal.component';
-import { SelectClasseComponent } from './shared/modal/select-classe/select-classe.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +58,6 @@ import { SelectClasseComponent } from './shared/modal/select-classe/select-class
     ModalComponent,
     InputCalendarComponent,
     DropdownUfComponent,
-    SelectClasseComponent,
     LoginComponent,
     RegisterComponent,
     InputTextComponent,
@@ -90,6 +89,7 @@ import { SelectClasseComponent } from './shared/modal/select-classe/select-class
     DividerModule,
     CheckboxModule,
     FormsModule,
+    ChipModule,
   ],
   providers: [
     DialogService,
