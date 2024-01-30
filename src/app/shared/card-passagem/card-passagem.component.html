@@ -1,0 +1,88 @@
+<p-card class="card-passagem">
+  <div class="card-passagem__infos">
+    <p class="headline medium">Ida e Volta</p>
+    <p-divider></p-divider>
+    <div class="infos_line">
+      <div class="card-passagem__infos_data">
+        <p class="title small">Origem</p>
+        <div class="card-passagem__infos_data_box">
+          <p class="body large">
+            {{ passagem.origem.nome }} ({{ passagem.origem.sigla }})
+          </p>
+        </div>
+      </div>
+      <div class="card-passagem__infos_data">
+        <p class="title small">Destino</p>
+        <div class="card-passagem__infos_data_box">
+          <p class="body large">
+            {{ passagem.destino.nome }} ({{ passagem.origem.sigla }})
+          </p>
+        </div>
+      </div>
+    </div>
+    <p-divider></p-divider>
+    <div class="infos_line">
+      <div class="card-passagem__infos_data">
+        <p class="title small">Ida</p>
+        <div class="card-passagem__infos_data_box">
+          <p class="body large">{{ passagem.dataIda | date : "dd/MM" }}</p>
+        </div>
+      </div>
+      <div class="card-passagem__infos_data">
+        <p class="title small">Volta</p>
+        <div class="card-passagem__infos_data_box">
+          <p class="body large">{{ passagem.dataVolta | date : "dd/MM" }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-passagem__prices">
+    <div class="card-passagem__prices_total">
+      <p class="headline large">{{ passagem.total | currency : "BRL" }}</p>
+    </div>
+
+    <ul
+      *ngFor="let orcamento of passagem.orcamento"
+      class="card-passagem__prices_infos"
+    >
+      <li class="card-passagem__prices_infos_line">
+        <!-- <div class="card-passagem__prices_infos_line"> -->
+        <p class="body medium">{{ orcamento.descricao }}</p>
+        <p class="body medium">
+          {{ orcamento.preco | currency : "BRL" }}
+        </p>
+        <!-- </div> -->
+      </li>
+      <li class="card-passagem__prices_infos_line">
+        <!-- <div class="card-passagem__prices_infos_line"> -->
+        <p class="body medium">Taxas de embarque</p>
+        <p class="body medium">
+          {{ orcamento.taxaEmbarque | currency : "BRL" }}
+        </p>
+        <!-- </div> -->
+      </li>
+      <p-divider></p-divider>
+      <li class="card-passagem__prices_infos_line">
+        <!-- <div class="card-passagem__prices_infos_line"> -->
+        <p class="title medium"><b>Total</b></p>
+        <p class="title medium">
+          <b>{{ orcamento.total | currency : "BRL" }}</b>
+        </p>
+        <!-- </div> -->
+      </li>
+    </ul>
+
+    <div class="card-passagem__prices_discounts">
+      <p class="body medium">10% de desconto no PIX</p>
+      <p class="body medium">ou</p>
+      <p class="body medium">12x no cartão de crédito</p>
+    </div>
+
+    <button
+      pButton
+      label="COMPRAR"
+      class="btn primary"
+      (click)="comprar()"
+    ></button>
+  </div>
+</p-card>

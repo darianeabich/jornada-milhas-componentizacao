@@ -1,0 +1,113 @@
+:host ::ng-deep .card-passagem {
+  padding: 24px 16px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+
+  border-radius: 8px;
+  background: #fff;
+
+  .p-card {
+    width: 713px !important;
+  }
+
+  .p-card-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  &__infos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &_data {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+
+      &_box {
+        display: flex;
+        padding: 8px 16px;
+        align-items: center;
+        gap: 16px;
+        border-radius: 8px;
+        background: #f7f2fa;
+      }
+    }
+  }
+
+  &__prices {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    flex: 1 0 0;
+
+    &_total {
+      display: flex;
+      padding: 8px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      align-self: stretch;
+      background: var(--neutros-claros-superfcie-3, #ece6f0);
+    }
+
+    &_infos {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+
+      &_line {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex: 1 0 0;
+        width: 100%;
+      }
+    }
+
+    &_discounts {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      align-self: stretch;
+      width: 100%;
+
+      p {
+        flex: 1 0 0;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.infos_line {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+p-divider {
+  width: 100%;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  width: 100%;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DepoimentoService } from 'src/app/core/services/depoimento.service';
 import { PromocaoService } from 'src/app/core/services/promocao.service';
 import { Depoimento } from 'src/app/core/types/Depoimento.interface';
@@ -15,7 +16,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private promocaoService: PromocaoService,
-    private depoimentoService: DepoimentoService
+    private depoimentoService: DepoimentoService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -26,5 +28,9 @@ export class HomeComponent implements OnInit {
     this.depoimentoService.getDepoimentos().subscribe((depoimentos) => {
       this.listaDepos = depoimentos;
     });
+  }
+
+  navegarParaBusca(event: any) {
+    this.router.navigate(['/busca']);
   }
 }

@@ -1,5 +1,5 @@
 <app-card variant="secondary" class="form-busca">
-  <form [formGroup]="formBuscaService.formBusca">
+  <form [formGroup]="passagensForm">
     <h2>Passagens</h2>
     <div class="flex-container">
       <p-selectButton
@@ -10,7 +10,10 @@
       >
         <ng-template let-option pTemplate="item">
           <i
-            *ngIf="option.value === passagensForm.get('somenteIda')?.value"
+            *ngIf="
+              option.value ===
+              formBuscaService.formBusca.get('somenteIda')?.value
+            "
             class="pi pi-check"
           ></i>
           {{ option.label }}
@@ -24,8 +27,8 @@
         formControlName="adultos"
       ></p-toggleButton>
       <p-toggleButton
-        onLabel="Econômica"
-        offLabel="Econômica"
+        onLabel="Executiva"
+        offLabel="Executiva"
         [onIcon]="iconCheck"
         offIcon=""
         formControlName="tipo"
@@ -41,7 +44,12 @@
           [control]="formBuscaService.obterControle('origem')"
         ></app-dropdown-uf>
       </div>
-      <button pButton icon="pi pi-arrows-h" class="p-button-text"></button>
+      <button
+        pButton
+        icon="pi pi-arrows-h"
+        class="p-button-text"
+        (click)="formBuscaService.trocarOrigemDestino()"
+      ></button>
       <div class="drop-container">
         <app-dropdown-uf
           icon="assets/icones/flight_land.png"
@@ -50,18 +58,36 @@
         ></app-dropdown-uf>
       </div>
 
-      <!-- <div class="input-container"> -->
-      <app-input-calendar
-        label="Data de ida"
-        formControlName="dataIda"
-      ></app-input-calendar>
-      <app-input-calendar
-        label="Data de volta"
-        formControlName="dataVolta"
-      ></app-input-calendar>
-      <!-- </div> -->
+      <div class="field">
+        <span class="p-float-label">
+          <p-calendar
+            [showIcon]="true"
+            id="dataIda"
+            formControlName="dataIda"
+          ></p-calendar>
+          <label for="dataIda">Data de ida</label>
+        </span>
+      </div>
+
+      <div class="field">
+        <span class="p-float-label">
+          <p-calendar
+            [showIcon]="true"
+            id="dataVolta"
+            formControlName="dataVolta"
+          ></p-calendar>
+          <label for="dataVolta">Data de volta</label>
+        </span>
+      </div>
+
       <div class="button-busca">
-        <button pButton label="BUSCAR" class="btn primary"></button>
+        <button
+          pButton
+          label="BUSCAR"
+          class="btn primary"
+          [disabled]="!passagensForm.valid"
+          (click)="buscar()"
+        ></button>
       </div>
     </div>
   </form>

@@ -35,6 +35,17 @@
         width: inherit;
       }
     }
+
+    .field {
+      .p-calendar {
+        width: 164px;
+        height: 48px;
+      }
+
+      button {
+        margin: 0;
+      }
+    }
   }
 
   h2 {
@@ -55,3 +66,15 @@
     width: 234px;
   }
 }
+
+// :host ::ng-deep .field {
+//   // width: 164px;
+
+//   .p-calendar {
+//     height: 48px;
+//   }
+
+//   button {
+//     margin: 0;
+//   }
+// }

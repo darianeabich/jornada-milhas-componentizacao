@@ -6,7 +6,7 @@ export interface Passagem {
   tipo: string;
   precoIda: number;
   precoVolta: number;
-  tacaEmbarque: number;
+  taxaEmbarque: number;
   conexoes: number;
   tempoVoo: number;
   origem: Estado;
@@ -15,5 +15,5 @@ export interface Passagem {
   dataIda: string;
   dataVolta: string;
   total: number;
-  orcamento: Orcamento;
+  orcamento: Orcamento[];
 }

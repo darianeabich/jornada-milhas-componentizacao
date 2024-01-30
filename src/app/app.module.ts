@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AutoCompleteModule } from 'primeng/autocomplete';
@@ -26,9 +26,11 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { SearchComponent } from './pages/search/search.component';
 import { BannerComponent } from './shared/banner/banner.component';
 import { CardBuscaComponent } from './shared/card-busca/card-busca.component';
 import { CardDepoComponent } from './shared/card-depo/card-depo.component';
+import { CardPassagemComponent } from './shared/card-passagem/card-passagem.component';
 import { CardComponent } from './shared/card/card.component';
 import { ContainerComponent } from './shared/container/container.component';
 import { DropdownUfComponent } from './shared/dropdown-uf/dropdown-uf.component';
@@ -63,6 +65,8 @@ import { SelectClasseComponent } from './shared/modal/select-classe/select-class
     FormBaseComponent,
     FormBuscaComponent,
     PerfilComponent,
+    SearchComponent,
+    CardPassagemComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,6 +89,7 @@ import { SelectClasseComponent } from './shared/modal/select-classe/select-class
     RadioButtonModule,
     DividerModule,
     CheckboxModule,
+    FormsModule,
   ],
   providers: [
     DialogService,

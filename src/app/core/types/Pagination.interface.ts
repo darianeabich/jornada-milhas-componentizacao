@@ -6,5 +6,5 @@ export interface Pagination {
   total: number;
   precoMin: number;
   precoMax: number;
-  resultado: Passagem;
+  resultado: Passagem[];
 }

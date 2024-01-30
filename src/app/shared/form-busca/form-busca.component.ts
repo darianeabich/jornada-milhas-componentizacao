@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { DialogService } from 'primeng/dynamicdialog';
 import { FormBuscaService } from 'src/app/core/services/form-busca.service';
@@ -10,54 +10,52 @@ import { UnidadeFederativaService } from 'src/app/core/services/unidade-federati
   styleUrls: ['./form-busca.component.scss'],
 })
 export class FormBuscaComponent implements OnInit {
+  @Output() realizarBusca = new EventEmitter();
   stateOptions: any[] = [];
   filteredCountries: string[] = [];
 
   oneAdult: string = '1 adulto';
   iconCheck: string = 'pi pi-check';
 
-  passagensForm!: FormGroup;
+  passagensForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     public dialogService: DialogService,
     private ufService: UnidadeFederativaService,
     public formBuscaService: FormBuscaService
-  ) {}
+  ) {
+    this.passagensForm = this.formBuscaService.getForm();
+  }
 
   ngOnInit(): void {
-    this.initForm();
-
     this.stateOptions = [
       {
         label: 'IDA E VOLTA',
-        value: true,
+        value: false,
       },
       {
         label: 'SOMENTE IDA',
-        value: false,
+        value: true,
       },
     ];
   }
 
-  initForm() {
-    this.passagensForm = this.fb.group({
-      somenteIda: [true],
-      adulto: [true],
-      classeEconomica: [true],
-      origem: [''],
-      destino: [''],
-      dataIda: [''],
-      dataVolta: [''],
-    });
-  }
+  // search(event: any) {
+  // this.ufService.listar().subscribe((estados) => {
+  //   estados.forEach((estado) => {
+  //     this.filteredCountries.push(estado.nome);
+  //   });
+  // });
+  // }
 
-  search(event: any) {
-    this.ufService.listar().subscribe((estados) => {
-      estados.forEach((estado) => {
-        this.filteredCountries.push(estado.nome);
-      });
-    });
+  buscar() {
+    if (this.formBuscaService.formEstaValido) {
+      const formBuscaValue = this.formBuscaService.formBusca.value;
+      this.realizarBusca.emit(formBuscaValue);
+    } else {
+      alert('Preencha todos os campos');
+    }
   }
 
   show() {
