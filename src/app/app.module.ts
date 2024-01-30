@@ -20,6 +20,7 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ChipModule } from 'primeng/chip';
+import { SliderModule } from 'primeng/slider';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AutenticacaoInterceptor } from './core/interceptors/autenticacao.interceptor';
@@ -37,6 +38,11 @@ import { ContainerComponent } from './shared/container/container.component';
 import { DropdownUfComponent } from './shared/dropdown-uf/dropdown-uf.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { FormBaseComponent } from './shared/form-base/form-base.component';
+import { CompanhiasComponent } from './shared/form-busca/filtros-complementares/companhias/companhias.component';
+import { FiltrosComplementaresComponent } from './shared/form-busca/filtros-complementares/filtros-complementares.component';
+import { LabelComponent } from './shared/form-busca/filtros-complementares/label/label.component';
+import { ParadasComponent } from './shared/form-busca/filtros-complementares/paradas/paradas.component';
+import { PrecoComponent } from './shared/form-busca/filtros-complementares/preco/preco.component';
 import { FormBuscaComponent } from './shared/form-busca/form-busca.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { InputCalendarComponent } from './shared/input-calendar/input-calendar.component';
@@ -66,6 +72,11 @@ import { ModalComponent } from './shared/modal/modal.component';
     PerfilComponent,
     SearchComponent,
     CardPassagemComponent,
+    FiltrosComplementaresComponent,
+    CompanhiasComponent,
+    LabelComponent,
+    ParadasComponent,
+    PrecoComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,6 +101,7 @@ import { ModalComponent } from './shared/modal/modal.component';
     CheckboxModule,
     FormsModule,
     ChipModule,
+    SliderModule,
   ],
   providers: [
     DialogService,

@@ -1,0 +1,8 @@
+<section class="companhias">
+  <app-label texto="Companhias"></app-label>
+  <div class="checkbox-group">
+    <p *ngFor="let opcao of opcoes">
+      <p-checkbox [label]="opcao.display" [value]="opcao.value">}</p-checkbox>
+    </p>
+  </div>
+</section>

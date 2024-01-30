@@ -1,0 +1,16 @@
+<section class="precos">
+  <app-label texto="Preço"></app-label>
+  <div class="labels">
+    <div class="label-container">
+      <label for="preco-minimo" class="name-label">De</label>
+      <p>{{ precoMin | currency : "BRL" }}</p>
+    </div>
+    <div class="label-container">
+      <label for="preco-maximo" class="name-label">Até</label>
+      <p>{{ precoMax | currency : "BRL" }}</p>
+    </div>
+  </div>
+  <div class="slider">
+    <p-slider formControlName="preco" [min]="200" [max]="1500"></p-slider>
+  </div>
+</section>
