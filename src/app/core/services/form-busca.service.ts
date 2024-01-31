@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 import { DialogService } from 'primeng/dynamicdialog';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
 import { DadosBusca } from '../types/DadosBusca.interface';
@@ -8,22 +14,23 @@ import { DadosBusca } from '../types/DadosBusca.interface';
   providedIn: 'root',
 })
 export class FormBuscaService {
-  formBusca: UntypedFormGroup;
+  formBusca: FormGroup;
 
   constructor(private dialogService: DialogService) {
-    const somenteIda = new UntypedFormControl(false, [Validators.required]);
-    const dataVolta = new UntypedFormControl(null, [Validators.required]);
+    const somenteIda = new FormControl(false, [Validators.required]);
+    const dataVolta = new FormControl(null, [Validators.required]);
 
     this.formBusca = new UntypedFormGroup({
       somenteIda,
-      origem: new UntypedFormControl(null, [Validators.required]),
-      destino: new UntypedFormControl(null, [Validators.required]),
-      tipo: new UntypedFormControl('Executiva'),
-      passageirosAdultos: new UntypedFormControl(1),
-      passageirosCriancas: new UntypedFormControl(0),
-      passageirosBebes: new UntypedFormControl(0),
-      dataIda: new UntypedFormControl(null, [Validators.required]),
+      origem: new FormControl(null, [Validators.required]),
+      destino: new FormControl(null, [Validators.required]),
+      tipo: new FormControl('Executiva'),
+      passageirosAdultos: new FormControl(1),
+      passageirosCriancas: new FormControl(0),
+      passageirosBebes: new FormControl(0),
+      dataIda: new FormControl(null, [Validators.required]),
       dataVolta,
+      conexoes: new FormControl(null),
     });
 
     somenteIda.valueChanges.subscribe((somenteIda) => {
@@ -63,9 +70,11 @@ export class FormBuscaService {
       origemId: this.obterControle<number>('origem')?.value.id,
       destinoId: this.obterControle<number>('destino')?.value.id,
       tipo: this.obterControle<string>('tipo')?.value,
-      passageirosAdultos: this.obterControle<number>('adultos')?.value,
-      passageirosCriancas: this.obterControle<number>('criancas')?.value,
-      passageirosBebes: this.obterControle<number>('bebes')?.value,
+      passageirosAdultos:
+        this.obterControle<number>('passageirosAdultos')?.value,
+      passageirosCriancas: this.obterControle<number>('passageirosCriancas')
+        ?.value,
+      passageirosBebes: this.obterControle<number>('passageirosBebes')?.value,
       dataIda: dataIdaControl.toISOString(),
       dataVolta: this.obterControle<string>('dataVolta')?.value,
     };
@@ -73,6 +82,11 @@ export class FormBuscaService {
     const dataVoltaControl = this.obterControle<Date>('dataVolta')?.value;
     if (dataVoltaControl) {
       dadosBusca.dataVolta = dataVoltaControl.toISOString();
+    }
+
+    const conexoesControl = this.obterControle<number>('conexoes');
+    if (conexoesControl.value) {
+      dadosBusca.conexoes = conexoesControl.value;
     }
 
     return dadosBusca;

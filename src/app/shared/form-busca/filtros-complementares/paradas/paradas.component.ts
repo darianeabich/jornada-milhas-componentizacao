@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { FormBuscaService } from 'src/app/core/services/form-busca.service';
+import { OpcoesDeParada } from 'src/app/core/types/OpcoesDeParada.interface';
 
 @Component({
   selector: 'app-paradas',
   templateUrl: './paradas.component.html',
   styleUrls: ['./paradas.component.scss'],
 })
-export class ParadasComponent {
-  opcoes = [
+export class ParadasComponent implements OnInit {
+  opcoesSelecionadas: OpcoesDeParada | null = null;
+  opcoes: OpcoesDeParada[] = [
     {
       display: 'Direto',
       value: '0',
@@ -24,4 +28,19 @@ export class ParadasComponent {
       value: '3',
     },
   ];
+
+  conexoesControl: FormControl<number | null>;
+
+  constructor(private formBuscaService: FormBuscaService) {
+    this.conexoesControl =
+      this.formBuscaService.obterControle<number>('conexoes');
+  }
+
+  ngOnInit() {
+    this.conexoesControl.valueChanges.subscribe((value) => {
+      if (!value) {
+        this.opcoesSelecionadas = null;
+      }
+    });
+  }
 }
