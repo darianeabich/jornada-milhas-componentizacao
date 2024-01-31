@@ -2,7 +2,13 @@
   <app-label texto="Paradas"></app-label>
   <div class="checkbox-group">
     <p *ngFor="let opcao of opcoes">
-      <p-checkbox [label]="opcao.display" [value]="opcao.value">}</p-checkbox>
+      <p-checkbox
+        [binary]="true"
+        [label]="opcao.display"
+        (onChange)="alternarParada($event.checked, opcao)"
+        [disabled]="incluirParada(opcao)"
+        [inputId]="opcao.value"
+      ></p-checkbox>
     </p>
   </div>
 </section>

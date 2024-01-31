@@ -8,11 +8,11 @@
           (realizarBusca)="busca($event)"
         ></app-filtros-complementares>
       </aside>
-    </section>
-    <section class="passagens">
-      <div *ngFor="let item of passagens">
-        <app-card-passagem [passagem]="item"></app-card-passagem>
-      </div>
+      <section class="passagens">
+        <div *ngFor="let item of passagens">
+          <app-card-passagem [passagem]="item"></app-card-passagem>
+        </div>
+      </section>
     </section>
   </app-container>
 </div>

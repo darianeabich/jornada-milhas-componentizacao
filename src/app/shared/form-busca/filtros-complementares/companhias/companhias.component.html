@@ -1,8 +1,13 @@
 <section class="companhias">
   <app-label texto="Companhias"></app-label>
   <div class="checkbox-group">
-    <p *ngFor="let opcao of opcoes">
-      <p-checkbox [label]="opcao.display" [value]="opcao.value">}</p-checkbox>
+    <p *ngFor="let opcao of companhias">
+      <p-checkbox
+        [binary]="true"
+        [label]="opcao.nome"
+        (onChange)="alternarCompanhias($event.checked, opcao)"
+        [value]="opcao.id"
+      ></p-checkbox>
     </p>
   </div>
 </section>

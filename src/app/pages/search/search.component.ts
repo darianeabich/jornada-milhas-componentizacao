@@ -17,8 +17,8 @@ export class SearchComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const buscaPadrao = {
-      date: new Date().toISOString(),
+    const buscaPadrao: DadosBusca = {
+      dataIda: new Date().toISOString(),
       pagina: 1,
       porPagina: 25,
       somenteIda: false,

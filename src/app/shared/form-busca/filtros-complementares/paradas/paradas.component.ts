@@ -9,7 +9,7 @@ import { OpcoesDeParada } from 'src/app/core/types/OpcoesDeParada.interface';
   styleUrls: ['./paradas.component.scss'],
 })
 export class ParadasComponent implements OnInit {
-  opcoesSelecionadas: OpcoesDeParada | null = null;
+  opcaoSelecionada: OpcoesDeParada | null = null;
   opcoes: OpcoesDeParada[] = [
     {
       display: 'Direto',
@@ -39,8 +39,43 @@ export class ParadasComponent implements OnInit {
   ngOnInit() {
     this.conexoesControl.valueChanges.subscribe((value) => {
       if (!value) {
-        this.opcoesSelecionadas = null;
+        this.opcaoSelecionada = null;
       }
     });
+  }
+
+  alternarParada(checked: boolean, opcao: OpcoesDeParada) {
+    console.log('parada selecionada => ', opcao, ' - valor: ', checked);
+    if (!checked) {
+      console.log('desmarcou');
+      this.opcaoSelecionada = null;
+      this.formBuscaService.formBusca.patchValue({
+        conexoes: null,
+      });
+      return;
+    }
+    console.log('marcou');
+    this.opcaoSelecionada = opcao;
+    this.formBuscaService.formBusca.patchValue({
+      conexoes: Number(opcao.value),
+    });
+  }
+
+  paradaSelecionada(event: any, opcao: OpcoesDeParada): boolean {
+    console.log('event =>', event.checked);
+    console.log('opcao =>', opcao);
+    if (event.checked) {
+      return this.opcaoSelecionada === opcao;
+    } else {
+      return false;
+    }
+  }
+
+  incluirParada(opcao: OpcoesDeParada) {
+    if (!this.opcaoSelecionada) {
+      return false;
+    }
+
+    return this.opcaoSelecionada.value > opcao.value;
   }
 }
