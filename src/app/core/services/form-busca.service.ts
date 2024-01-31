@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { DialogService } from 'primeng/dynamicdialog';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
 import { DadosBusca } from '../types/DadosBusca.interface';
@@ -8,21 +8,21 @@ import { DadosBusca } from '../types/DadosBusca.interface';
   providedIn: 'root',
 })
 export class FormBuscaService {
-  formBusca: FormGroup;
+  formBusca: UntypedFormGroup;
 
   constructor(private dialogService: DialogService) {
-    const somenteIda = new FormControl(false, [Validators.required]);
-    const dataVolta = new FormControl(null, [Validators.required]);
+    const somenteIda = new UntypedFormControl(false, [Validators.required]);
+    const dataVolta = new UntypedFormControl(null, [Validators.required]);
 
-    this.formBusca = new FormGroup({
+    this.formBusca = new UntypedFormGroup({
       somenteIda,
-      origem: new FormControl(null, [Validators.required]),
-      destino: new FormControl(null, [Validators.required]),
-      tipo: new FormControl('Executiva'),
-      passageirosAdultos: new FormControl(1),
-      passageirosCriancas: new FormControl(0),
-      passageirosBebes: new FormControl(0),
-      dataIda: new FormControl(null, [Validators.required]),
+      origem: new UntypedFormControl(null, [Validators.required]),
+      destino: new UntypedFormControl(null, [Validators.required]),
+      tipo: new UntypedFormControl('Executiva'),
+      passageirosAdultos: new UntypedFormControl(1),
+      passageirosCriancas: new UntypedFormControl(0),
+      passageirosBebes: new UntypedFormControl(0),
+      dataIda: new UntypedFormControl(null, [Validators.required]),
       dataVolta,
     });
 
@@ -43,14 +43,14 @@ export class FormBuscaService {
     });
   }
 
-  obterControle<T>(nome: string): FormControl {
+  obterControle<T>(nome: string): UntypedFormControl {
     const control = this.formBusca.get(nome);
 
     if (!control) {
       throw new Error(`Control ${nome} não encontrado`);
     }
 
-    return control as FormControl;
+    return control as UntypedFormControl;
   }
 
   obterDadosDeBusca(): DadosBusca {
@@ -115,7 +115,7 @@ export class FormBuscaService {
   /*
    * Retorna o formulário
    */
-  getForm(): FormGroup {
+  getForm(): UntypedFormGroup {
     return this.formBusca;
   }
 }

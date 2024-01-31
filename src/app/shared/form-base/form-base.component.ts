@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormControl,
+  UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import { FormularioService } from 'src/app/core/services/formulario.service';
@@ -20,16 +20,16 @@ export class FormBaseComponent implements OnInit {
   @Output() acaoClique = new EventEmitter();
   @Output() acaoLogout = new EventEmitter();
 
-  registerForm!: FormGroup;
-  estadoControl = new FormControl(null, Validators.required);
-  nascimentoControl = new FormControl(null, Validators.required);
+  registerForm!: UntypedFormGroup;
+  estadoControl = new UntypedFormControl(null, Validators.required);
+  nascimentoControl = new UntypedFormControl(null, Validators.required);
   categories: any[] = [
     { name: 'Feminino', key: 'F' },
     { name: 'Masculino', key: 'M' },
     { name: 'Prefiro não informar', key: 'PNI' },
   ];
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private formularioService: FormularioService
   ) {}
 

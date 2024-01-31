@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FormularioService {
-  cadastroForm: FormGroup | null = null;
+  cadastroForm: UntypedFormGroup | null = null;
 
-  getCadastro(): FormGroup | null {
+  getCadastro(): UntypedFormGroup | null {
     return this.cadastroForm;
   }
 
-  setCadastro(form: FormGroup) {
+  setCadastro(form: UntypedFormGroup) {
     this.cadastroForm = form;
   }
 }

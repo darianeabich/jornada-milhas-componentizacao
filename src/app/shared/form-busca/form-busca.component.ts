@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { DialogService } from 'primeng/dynamicdialog';
 import { FormBuscaService } from 'src/app/core/services/form-busca.service';
 import { UnidadeFederativaService } from 'src/app/core/services/unidade-federativa.service';
@@ -19,10 +19,10 @@ export class FormBuscaComponent implements OnInit {
   tipoPassagem: string = 'Executiva';
   iconCheck: string = 'pi pi-check';
 
-  passagensForm: FormGroup;
+  passagensForm: UntypedFormGroup;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     public dialogService: DialogService,
     private ufService: UnidadeFederativaService,
     public formBuscaService: FormBuscaService

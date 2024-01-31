@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, forwardRef } from '@angular/core';
 import {
   ControlValueAccessor,
-  FormControl,
+  UntypedFormControl,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
 
@@ -21,7 +21,7 @@ export class InputTextComponent implements OnInit, ControlValueAccessor {
   @Input() label: string = '';
   @Input() inputId: string = '';
   @Input() placeholder: string = '';
-  @Input() control!: FormControl;
+  @Input() control!: UntypedFormControl;
 
   value: string = '';
 

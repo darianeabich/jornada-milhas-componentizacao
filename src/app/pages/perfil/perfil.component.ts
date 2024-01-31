@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CadastroService } from 'src/app/core/services/cadastro.service';
 import { FormularioService } from 'src/app/core/services/formulario.service';
@@ -17,7 +17,7 @@ export class PerfilComponent implements OnInit {
 
   nome = '';
   cadastro!: User;
-  form!: FormGroup | null;
+  form!: UntypedFormGroup | null;
 
   constructor(
     private cadastroService: CadastroService,

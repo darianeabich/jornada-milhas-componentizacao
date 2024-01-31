@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { FormBuscaService } from 'src/app/core/services/form-busca.service';
 
@@ -9,11 +9,11 @@ import { FormBuscaService } from 'src/app/core/services/form-busca.service';
   styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent implements OnInit {
-  viajanteForm!: FormGroup;
+  viajanteForm!: UntypedFormGroup;
   stateOptions: any[] = [];
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     public formBuscaService: FormBuscaService,
     private ref: DynamicDialogRef,
     private config: DynamicDialogConfig
